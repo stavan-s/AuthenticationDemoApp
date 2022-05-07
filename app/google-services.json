@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "945145790510",
+    "project_id": "authenticationdemo-b4fdf",
+    "storage_bucket": "authenticationdemo-b4fdf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:945145790510:android:f17c970a0bb0db082c1fbf",
+        "android_client_info": {
+          "package_name": "com.stavan.authenticationdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "945145790510-p6qofcf1ce993aoo6eu9abged2pkid8q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbdUWDckfhVmxbEECsv6qHMjfVRmJRpMU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "945145790510-p6qofcf1ce993aoo6eu9abged2pkid8q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
