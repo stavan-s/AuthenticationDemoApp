@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/alfa_slab_one"
         android:text="Authenticator App"
-        android:textSize="30sp"
+        android:textColor="#303030"
+        android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,8 +23,10 @@
     <EditText
         android:id="@+id/resetEmailInput"
         android:layout_width="269dp"
-        android:layout_height="56dp"
+        android:layout_height="50dp"
         android:hint="Enter your email id"
+        android:paddingLeft="45dp"
+        android:background="@drawable/input_border"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -35,8 +38,10 @@
     <Button
         android:id="@+id/resetBtn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:text="Reset"
+        android:textColor="@color/white"
+        android:background="@drawable/button_bg"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -52,5 +57,15 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.633" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+        app:layout_constraintBottom_toBottomOf="@+id/resetEmailInput"
+        app:layout_constraintStart_toStartOf="@+id/resetEmailInput"
+        app:layout_constraintTop_toTopOf="@+id/resetEmailInput"
+        app:srcCompat="@drawable/ic_reset" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
