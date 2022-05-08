@@ -6,9 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +28,8 @@ public class Login extends AppCompatActivity {
     Button loginBtn;
     EditText loginEmailInput, loginPasswordInput;
     ProgressBar progressBar;
+    ImageView passView;
+    int passToggle = 0;
     FirebaseAuth auth;
 
     @Override
@@ -38,6 +43,8 @@ public class Login extends AppCompatActivity {
         loginEmailInput = findViewById(R.id.loginEmailInput);
         loginPasswordInput = findViewById(R.id.loginPasswordInput);
         progressBar = findViewById(R.id.progressBar2);
+        passView = findViewById(R.id.pass_visible);
+        passView.setBackgroundResource(R.drawable.ic_pass_view);
         auth = FirebaseAuth.getInstance();
 
         if(auth.getCurrentUser() != null) {
@@ -62,6 +69,21 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Login.this, ResetPass.class));
+            }
+        });
+
+        passView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(passToggle == 0) {
+                    loginPasswordInput.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    passView.setBackgroundResource(R.drawable.ic_pass_hide);
+                }
+                else {
+                    loginPasswordInput.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    passView.setBackgroundResource(R.drawable.ic_pass_view);
+                }
+                passToggle ^= 1;
             }
         });
 

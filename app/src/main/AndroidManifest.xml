@@ -13,24 +13,28 @@
         android:theme="@style/Theme.AuthenticationDemo">
         <activity
             android:name=".ResetPass"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".WelcomePage"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".Register"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".Login"
-            android:exported="false" >
-        </activity>
+            android:exported="false"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

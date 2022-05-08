@@ -4,12 +4,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,13 +26,17 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.w3c.dom.Text;
+
 public class Register extends AppCompatActivity {
 
     TextView existingAccount;
     Button registerBtn;
     EditText nameInput, emailInput, passwordInput, numberInput;
     ProgressBar progressBar;
+    ImageView passView;
     FirebaseAuth auth;
+    int passToggle = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +50,8 @@ public class Register extends AppCompatActivity {
         passwordInput = findViewById(R.id.passwordInput);
         numberInput = findViewById(R.id.numberInput);
         progressBar = findViewById(R.id.progressBar);
+        passView = findViewById(R.id.pass_visible);
+        passView.setBackgroundResource(R.drawable.ic_pass_view);
         auth = FirebaseAuth.getInstance();
 
         if(auth.getCurrentUser() != null) {
@@ -54,6 +65,21 @@ public class Register extends AppCompatActivity {
                 Intent intent = new Intent(Register.this, Login.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        passView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(passToggle == 0) {
+                    passwordInput.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    passView.setBackgroundResource(R.drawable.ic_pass_hide);
+                }
+                else {
+                    passwordInput.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    passView.setBackgroundResource(R.drawable.ic_pass_view);
+                }
+                passToggle ^= 1;
             }
         });
 
